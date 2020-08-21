@@ -10,10 +10,8 @@ import scissors from './assets/scissors.png';
 import robotRendom from './assets/robo-rendom.png';
 import robotTactic from './assets/robot-tactic.png';
 
-
 const weapons = ["rock", "paper", "scissors"];
 const rendomeWeapon = () => weapons[Math.floor(Math.random() * weapons.length)];
-
 
 const initState = {
   playerOneWeapon: weapons[0],
@@ -43,7 +41,6 @@ class App extends Component {
     this.selectRobot = this.selectRobot.bind(this);
   }
 
-
   startGame = () => {
     let gameInterval = setInterval(() => {
       
@@ -53,7 +50,6 @@ class App extends Component {
           winner: ""
         });
       }
-
 
       if(this.state.robotActive === 'Robot Tactic') {
         this.setState({
@@ -74,8 +70,6 @@ class App extends Component {
           nextTactic = this.state.robotTacticLastChoice;
       }
       this.setState({robotTacticLastChoice: nextTactic})
-
-       
       
       clearInterval(gameInterval);
 
@@ -98,8 +92,6 @@ class App extends Component {
 
     }, 100);
   };
-
-  
 
   selectWinner = () => {
 
@@ -146,7 +138,6 @@ class App extends Component {
       this.resetTheGame();
     }
   }
- 
 
   resetTheGame = () => {
     this.setState(initState);
@@ -154,10 +145,6 @@ class App extends Component {
 
   selectRobot = (robotSelected) => {
     this.setState({robotActive: robotSelected});
-  }
-
-  robotTacticAlgo = () => {
-
   }
 
   render() {
